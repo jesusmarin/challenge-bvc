@@ -24,6 +24,7 @@ public class EventServiceImp implements EventService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public EventDto getEventById(Long id) {
         Optional<Event> op =eventRepository.findById(id);
         if(op.isPresent()){
@@ -49,8 +50,7 @@ public class EventServiceImp implements EventService {
     public EventDto addEvent(EventDto eventDto) {
         Event ev = modelMapper.map(eventDto, Event.class);
         ev = eventRepository.save(ev);
-        EventDto edto =   modelMapper.map(ev, EventDto.class);
-        return edto;
+        return  modelMapper.map(ev, EventDto.class);
     }
 
     @Override
