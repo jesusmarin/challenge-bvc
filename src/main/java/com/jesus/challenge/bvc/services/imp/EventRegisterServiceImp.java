@@ -100,18 +100,33 @@ public class EventRegisterServiceImp implements EventRegisterService {
     }
 
     @Override
-    public List<EventRegisterDto> findBetweenDate(Long startDate, Long endDate, Event e) {
-        return null;
+    public List<EventRegisterDto> findBetweenDateEvent(Long startDate, Long endDate, Event e) {
+        List<EventRegister> lista = (List<EventRegister>) repository.findBetweenDateEvent(startDate, endDate, e);
+        if(lista.size()>0){
+            return lista.stream().map(er -> modelMapper.map(er, EventRegisterDto.class)).collect(Collectors.toList());
+        }else{
+            return null;
+        }
     }
 
     @Override
-    public List<EventRegisterDto> findBetweenDate(Long startDate, Long endDate, Platform p) {
-        return null;
+    public List<EventRegisterDto> findBetweenDatePlatform(Long startDate, Long endDate, Platform p) {
+        List<EventRegister> lista = (List<EventRegister>) repository.findBetweenDatePlatform(startDate, endDate, p);
+        if(lista.size()>0){
+            return lista.stream().map(er -> modelMapper.map(er, EventRegisterDto.class)).collect(Collectors.toList());
+        }else{
+            return null;
+        }
     }
 
     @Override
-    public List<EventRegisterDto> findBetweenDate(Long startDate, Long endDate, Event e, Platform p) {
-        return null;
+    public List<EventRegisterDto> findBetweenDateEventPlatform(Long startDate, Long endDate, Event e, Platform p) {
+        List<EventRegister> lista = (List<EventRegister>) repository.findBetweenDateEventPlatform(startDate, endDate, e, p);
+        if(lista.size()>0){
+            return lista.stream().map(er -> modelMapper.map(er, EventRegisterDto.class)).collect(Collectors.toList());
+        }else{
+            return null;
+        }
     }
 
     @Override
@@ -121,16 +136,16 @@ public class EventRegisterServiceImp implements EventRegisterService {
 
     @Override
     public Integer countBetweenDate(Long startDate, Long endDate, Event e) {
-        return null;
+        return repository.countBetweenDate(startDate, endDate, e);
     }
 
     @Override
     public Integer countBetweenDate(Long startDate, Long endDate, Platform p) {
-        return null;
+        return repository.countBetweenDate(startDate, endDate, p);
     }
 
     @Override
     public Integer countBetweenDate(Long startDate, Long endDate, Event e, Platform p) {
-        return null;
+        return repository.countBetweenDate(startDate, endDate, e, p);
     }
 }
