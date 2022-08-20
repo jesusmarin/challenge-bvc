@@ -25,8 +25,7 @@ public class Event {
     @Column(name="amount")
     private BigDecimal amount;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="platform_id", nullable=false, updatable=false) //
-    private Platform platform;
+
+
 
 }

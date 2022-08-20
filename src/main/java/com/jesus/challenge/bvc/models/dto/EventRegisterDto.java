@@ -1,20 +1,16 @@
 package com.jesus.challenge.bvc.models.dto;
 
+import com.jesus.challenge.bvc.models.entities.Event;
 import com.jesus.challenge.bvc.models.entities.Platform;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventDto {
-
+public class EventRegisterDto {
     private Long id;
-    private String idEvent;
-    private String description;
-    private BigDecimal amount;
-
+    private Platform platform;
+    private Event event;
 }
