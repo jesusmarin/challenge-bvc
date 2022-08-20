@@ -1,7 +1,9 @@
 package com.jesus.challenge.bvc.controllers;
 
 import com.jesus.challenge.bvc.models.dto.EventDto;
+import com.jesus.challenge.bvc.models.dto.EventRegisterDto;
 import com.jesus.challenge.bvc.models.dto.PlatformDto;
+import com.jesus.challenge.bvc.services.EventRegisterService;
 import com.jesus.challenge.bvc.services.EventService;
 import com.jesus.challenge.bvc.services.PlatformService;
 import lombok.AllArgsConstructor;
@@ -16,6 +18,7 @@ import java.util.List;
 public class BvcController {
     private final EventService eventService;
     private final PlatformService platformService;
+    private final EventRegisterService evRegisterService;
 
     //-----Eventos--------------------------
 
@@ -23,7 +26,7 @@ public class BvcController {
      * @param ed EventDto
      * @return EventDto.Class
      */
-    @PostMapping(value = "/events/")
+    @PostMapping(value = "/events")
     public EventDto saveEvent(@RequestBody EventDto ed){
         return eventService.addEvent(ed);
     }
@@ -38,7 +41,7 @@ public class BvcController {
         return eventService.getEventById(id.longValue());
     }
 
-    @GetMapping("/events/")
+    @GetMapping("/events")
     public List<EventDto> findAllEvent(){
         return eventService.findAll();
     }
@@ -49,20 +52,60 @@ public class BvcController {
      * @param dto
      * @return PlatformDto
      */
-    @PostMapping(value = "/platforms/")
+    @PostMapping(value = "/platforms")
     public PlatformDto savePlatform(@RequestBody PlatformDto dto){
      return platformService.addPlatform(dto);
     }
 
+    /**
+     * *
+     * @param id
+     * @return PlatformDto
+     */
     @GetMapping("/platforms/{id}")
     public PlatformDto getPlatformsById(@PathVariable("id") Integer id){
         return platformService.getPlatformById(id.longValue());
     }
 
-    @GetMapping("/platforms/")
+    /**
+     * *
+     * @return List<PlatformDto>
+     */
+    @GetMapping("/platforms")
     public List<PlatformDto> findAllPlatforms(){
         return platformService.findAll();
     }
 
     //----- Registro de Eventos -------------------------
+
+    /**
+     * *
+     * @param dto
+     * @return EventRegisterDto
+     */
+    @PostMapping(value = "/event-register")
+    public EventRegisterDto saveEventRegister(@RequestBody EventRegisterDto dto){
+        return evRegisterService.addEventRegister(dto);
+    }
+
+    /**
+     * *
+     * @param id
+     * @return EventRegisterDto
+     */
+    @GetMapping("/event-register/{id}")
+    public EventRegisterDto getEventRegisterById(@PathVariable("id") Integer id){
+        return evRegisterService.getEventRegisterById(id.longValue());
+    }
+
+    /**
+     * *
+     * @return List<EventRegisterDto>
+     */
+    @GetMapping("/event-register")
+    public List<EventRegisterDto> findAllEventRegister(){
+        return evRegisterService.findAll();
+    }
+
+
 }

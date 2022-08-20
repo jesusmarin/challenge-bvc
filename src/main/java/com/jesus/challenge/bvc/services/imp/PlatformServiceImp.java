@@ -82,5 +82,6 @@ public class PlatformServiceImp implements PlatformService {
 
     @Override
     public void removePlatform(Long id) {
+        platformRepository.deleteById(id);
     }
 }

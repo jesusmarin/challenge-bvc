@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Data
 @Entity
@@ -20,7 +21,7 @@ public class EventRegister {
     @Column(name="amount")
     private Integer amount;
     @Column(name="cost")
-    private Integer cost;
+    private BigDecimal cost;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="platform_id", nullable=false, updatable=false) //
     private Platform platform;
