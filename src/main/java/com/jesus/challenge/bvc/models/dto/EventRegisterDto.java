@@ -11,6 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class EventRegisterDto {
     private Long id;
+    private Long date;
+    private Integer amount;
+    private Integer cost;
     private Platform platform;
     private Event event;
 }

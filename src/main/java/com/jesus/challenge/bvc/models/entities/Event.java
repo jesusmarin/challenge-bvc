@@ -22,8 +22,8 @@ public class Event {
     private String idEvent;
     @Column(name="description")
     private String description;
-    @Column(name="amount")
-    private BigDecimal amount;
+    @Column(name="cost")
+    private BigDecimal cost;
 
 
 

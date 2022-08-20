@@ -17,6 +17,10 @@ public class EventRegister {
     private Long id;
     @Column(name="date")
     private Long date;
+    @Column(name="amount")
+    private Integer amount;
+    @Column(name="cost")
+    private Integer cost;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="platform_id", nullable=false, updatable=false) //
     private Platform platform;

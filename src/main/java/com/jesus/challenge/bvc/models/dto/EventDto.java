@@ -15,6 +15,6 @@ public class EventDto {
     private Long id;
     private String idEvent;
     private String description;
-    private BigDecimal amount;
+    private BigDecimal cost;
 
 }
