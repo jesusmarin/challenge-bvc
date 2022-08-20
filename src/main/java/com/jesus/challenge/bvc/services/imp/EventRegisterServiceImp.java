@@ -100,8 +100,8 @@ public class EventRegisterServiceImp implements EventRegisterService {
     }
 
     @Override
-    public List<EventRegisterDto> findBetweenDateEvent(Long startDate, Long endDate, Event e) {
-        List<EventRegister> lista = (List<EventRegister>) repository.findBetweenDateEvent(startDate, endDate, e);
+    public List<EventRegisterDto> findBetweenDate(Long startDate, Long endDate, Event e) {
+        List<EventRegister> lista = (List<EventRegister>) repository.findBetweenDate(startDate, endDate, e);
         if(lista.size()>0){
             return lista.stream().map(er -> modelMapper.map(er, EventRegisterDto.class)).collect(Collectors.toList());
         }else{
@@ -110,8 +110,8 @@ public class EventRegisterServiceImp implements EventRegisterService {
     }
 
     @Override
-    public List<EventRegisterDto> findBetweenDatePlatform(Long startDate, Long endDate, Platform p) {
-        List<EventRegister> lista = (List<EventRegister>) repository.findBetweenDatePlatform(startDate, endDate, p);
+    public List<EventRegisterDto> findBetweenDate(Long startDate, Long endDate, Platform p) {
+        List<EventRegister> lista = (List<EventRegister>) repository.findBetweenDate(startDate, endDate, p);
         if(lista.size()>0){
             return lista.stream().map(er -> modelMapper.map(er, EventRegisterDto.class)).collect(Collectors.toList());
         }else{
@@ -120,8 +120,8 @@ public class EventRegisterServiceImp implements EventRegisterService {
     }
 
     @Override
-    public List<EventRegisterDto> findBetweenDateEventPlatform(Long startDate, Long endDate, Event e, Platform p) {
-        List<EventRegister> lista = (List<EventRegister>) repository.findBetweenDateEventPlatform(startDate, endDate, e, p);
+    public List<EventRegisterDto> findBetweenDate(Long startDate, Long endDate, Event e, Platform p) {
+        List<EventRegister> lista = (List<EventRegister>) repository.findBetweenDate(startDate, endDate, e, p);
         if(lista.size()>0){
             return lista.stream().map(er -> modelMapper.map(er, EventRegisterDto.class)).collect(Collectors.toList());
         }else{

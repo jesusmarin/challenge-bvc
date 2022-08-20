@@ -105,38 +105,70 @@ public class BvcController {
         return evRegisterService.findAll();
     }
 
+    /**
+     * @param dto BetweenDateDto
+     * @return List<EventRegisterDto>
+     */
     @GetMapping("/event-register/date")
     public List<EventRegisterDto> findBetweenDate(@RequestBody BetweenDateDto dto){
         return evRegisterService.findBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue());
     }
+    /**
+     * @param dto BetweenDateEventDto
+     * @return List<EventRegisterDto>
+     */
     @GetMapping("/event-register/date-event")
         public List<EventRegisterDto> findBetweenDate(@RequestBody BetweenDateEventDto dto){
-            return evRegisterService.findBetweenDateEvent(dto.getStart().longValue(), dto.getEnd().longValue(), dto.getEvent());
+            return evRegisterService.findBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue(), dto.getEvent());
     }
+    /**
+     * @param dto BetweenDatePlatformDto
+     * @return List<EventRegisterDto>
+     */
     @GetMapping("/event-register/date-plat")
         public List<EventRegisterDto> findBetweenDate(@RequestBody BetweenDatePlatformDto dto){
-            return evRegisterService.findBetweenDatePlatform(dto.getStart().longValue(), dto.getEnd().longValue(), dto.getPlatform());
+            return evRegisterService.findBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue(), dto.getPlatform());
     }
+    /**
+     * @param dto BetweenDateEventPlatformDto
+     * @return List<EventRegisterDto>
+     */
     @GetMapping("/event-register/date-event-plat")
         public List<EventRegisterDto> findBetweenDate(@RequestBody BetweenDateEventPlatformDto dto){
-            return evRegisterService.findBetweenDateEventPlatform(dto.getStart().longValue(), dto.getEnd().longValue(), dto.getEvent(), dto.getPlatform());
+            return evRegisterService.findBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue(), dto.getEvent(), dto.getPlatform());
     }
 
+    /**
+     * @param dto BetweenDateDto
+     * @return Integer
+     */
     @GetMapping("/event-register/count")
     public Integer countBetweenDate(@RequestBody BetweenDateDto dto){
         return evRegisterService.countBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue());
     }
+    /**
+     * @param dto BetweenDateEventDto
+     * @return Integer
+     */
     @GetMapping("/event-register/count-event")
     public Integer countBetweenDateEvent(@RequestBody BetweenDateEventDto dto){
         return evRegisterService.countBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue(), dto.getEvent());
     }
+    /**
+     * @param dto BetweenDatePlatformDto
+     * @return Integer
+     */
     @GetMapping("/event-register/count-plat")
     public Integer countBetweenDatePlatform(@RequestBody BetweenDatePlatformDto dto){
         return evRegisterService.countBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue(), dto.getPlatform());
     }
+    /**
+     * @param dto BetweenDateEventPlatformDto
+     * @return Integer
+     */
     @GetMapping("/event-register/count-event-plat")
         public Integer countBetweenDateEventPlatform(@RequestBody BetweenDateEventPlatformDto dto){
-            return evRegisterService.countBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue(), dto.getEvent(), dto.getPlatform());
+        return evRegisterService.countBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue(), dto.getEvent(), dto.getPlatform());
     }
 
 }
