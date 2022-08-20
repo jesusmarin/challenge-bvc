@@ -2,7 +2,6 @@ package com.jesus.challenge.bvc.services;
 
 import com.jesus.challenge.bvc.models.dto.EventRegisterDto;
 import com.jesus.challenge.bvc.models.entities.Event;
-import com.jesus.challenge.bvc.models.entities.EventRegister;
 import com.jesus.challenge.bvc.models.entities.Platform;
 
 import java.util.List;

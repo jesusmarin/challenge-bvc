@@ -91,7 +91,12 @@ public class EventRegisterServiceImp implements EventRegisterService {
 
     @Override
     public List<EventRegisterDto> findBetweenDate(Long startDate, Long endDate) {
-        return null;
+        List<EventRegister> lista = (List<EventRegister>) repository.findBetweenDate(startDate, endDate);
+        if(lista.size()>0){
+            return lista.stream().map(er -> modelMapper.map(er, EventRegisterDto.class)).collect(Collectors.toList());
+        }else{
+            return null;
+        }
     }
 
     @Override
@@ -111,7 +116,7 @@ public class EventRegisterServiceImp implements EventRegisterService {
 
     @Override
     public Integer countBetweenDate(Long startDate, Long endDate) {
-        return null;
+        return repository.countBetweenDate(startDate, endDate);
     }
 
     @Override

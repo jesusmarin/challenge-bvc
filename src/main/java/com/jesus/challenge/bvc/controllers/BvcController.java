@@ -1,5 +1,6 @@
 package com.jesus.challenge.bvc.controllers;
 
+import com.jesus.challenge.bvc.models.dto.BetweenDateDto;
 import com.jesus.challenge.bvc.models.dto.EventDto;
 import com.jesus.challenge.bvc.models.dto.EventRegisterDto;
 import com.jesus.challenge.bvc.models.dto.PlatformDto;
@@ -107,5 +108,14 @@ public class BvcController {
         return evRegisterService.findAll();
     }
 
+    @GetMapping("/event-register/filter")
+    public List<EventRegisterDto> findBetweenDate(@RequestBody BetweenDateDto dto){
+        return evRegisterService.findBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue());
+    }
+
+    @GetMapping("/event-register/count")
+    public Integer countBetweenDate(@RequestBody BetweenDateDto dto){
+        return evRegisterService.countBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue());
+    }
 
 }
