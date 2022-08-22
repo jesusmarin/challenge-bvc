@@ -1,5 +1,11 @@
 # CHALLENGE BVC
-## endpoints
+Aplicación Spring Boot con persistencia en PostgreSQL desarrollada como reto para la Bolsa de Valores de Colombia
+## Ruta servidor Heroku
+App desplagada en Heroku [Link](https://challenge-bvc.herokuapp.com/)
+## Documentacion OpenApi 3.0
+[Documentación](https://challenge-bvc.herokuapp.com/swagger-ui/index.html) 
+referencia en swagger de cada uno de los endpoint disponibles version OpenApi 3.0
+## referencia descriptiva de los endpoints
 ### Eventos
 https://challenge-bvc.herokuapp.com/api/events
 
