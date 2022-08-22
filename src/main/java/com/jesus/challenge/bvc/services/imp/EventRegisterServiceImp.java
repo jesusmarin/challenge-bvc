@@ -65,7 +65,7 @@ public class EventRegisterServiceImp implements EventRegisterService {
         EventRegister er = modelMapper.map(dto, EventRegister.class);
         BigDecimal cst = (dto.getEvent().getCost().multiply(BigDecimal.valueOf(dto.getAmount().doubleValue())));
         er.setCost(cst);
-        er.setDate(System.currentTimeMillis()/1000);
+        er.setDate(System.currentTimeMillis());
         EventRegister erdb = repository.save(er);
         return modelMapper.map(erdb, EventRegisterDto.class);
     }
