@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api")
-@CrossOrigin("*")
+@CrossOrigin(origins ="*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class BvcController {
     private final EventService eventService;
     private final PlatformService platformService;
