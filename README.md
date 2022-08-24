@@ -46,7 +46,7 @@ ejemplo de platform-
 ```
 {
         "id": 5,
-        "date": 1661033244,
+        "date": 1661033244000,
         "amount": 2,
         "cost": 41.00,
         "platform": {
@@ -68,8 +68,8 @@ Filtros por fechas, eventos y plataforma
 body del request  (devuelve registro de eventos entre esas fechas)
  ```
  {
-   "start":"1661033170",
-   "end":"1661033257"
+   "start":"1661033170000",
+   "end":"1661033257000"
  }
 ```
 - GET  https://challenge-bvc.herokuapp.com/api/event-register/date-event
@@ -77,8 +77,8 @@ body del request  (devuelve registro de eventos entre esas fechas)
 body del request (devuelve registro de eventos entre esas fechas y con ese tipo de evento)
  ```
  {
-   "start":"1661033170",
-   "end":"1661033257",
+   "start":"1661033170000",
+   "end":"1661033257000",
    "event": {
             "id": 1,
             "idEvent": "F001",
@@ -93,8 +93,8 @@ body del request (devuelve registro de eventos entre esas fechas y con ese tipo 
 body del request (devuelve registro de eventos entre esas fechas y con ese tipo de plataforma)
  ```
  {
-   "start":"1661033170",
-   "end":"1661033257",
+   "start":"1661033170000",
+   "end":"1661033257000",
    "platform": {
             "id": 2,
             "name": "DEPO",
@@ -107,8 +107,8 @@ body del request (devuelve registro de eventos entre esas fechas y con ese tipo 
 body del request (devuelve registro de eventos entre esas fechas y con ese tipo de evento y plataforma)
  ```
  {
-   "start":"1661033170",
-   "end":"1661033257",
+   "start":"1661033170000",
+   "end":"1661033257000",
    "platform": {
             "id": 2,
             "name": "DEPO",

@@ -133,9 +133,23 @@ public class BvcController {
      * @param dto BetweenDateEventPlatformDto
      * @return List<EventRegisterDto>
      */
-    @GetMapping("/event-register/date-event-plat")
+    @PostMapping("/event-register/date-event-plat")
+
         public List<EventRegisterDto> findBetweenDate(@RequestBody BetweenDateEventPlatformDto dto){
+        System.out.println("start peticion ->");
+        if((dto.getEvent().getIdEvent() != null && dto.getEvent().getIdEvent().length()>0) && (dto.getPlatform().getName() != null && dto.getPlatform().getName().length()>0)){
+            System.out.println("con todos los datos 1");
             return evRegisterService.findBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue(), dto.getEvent(), dto.getPlatform());
+        }else  if(dto.getEvent().getIdEvent() != null  && dto.getEvent().getIdEvent().length()>0){
+            System.out.println("con event los datos 2");
+            return evRegisterService.findBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue(), dto.getEvent());
+        }else if(dto.getPlatform().getName() != null && dto.getPlatform().getName().length()>0){
+            System.out.println("con platfomr los datos 3");
+            return evRegisterService.findBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue(), dto.getPlatform());
+        }else{
+            System.out.println("con fechas los datos 4");
+            return evRegisterService.findBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue());
+        }
     }
 
     /**
