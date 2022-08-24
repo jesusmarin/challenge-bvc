@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins ="*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*")
 public class BvcController {
     private final EventService eventService;
     private final PlatformService platformService;
@@ -136,7 +136,7 @@ public class BvcController {
     @PostMapping("/event-register/date-event-plat")
 
         public List<EventRegisterDto> findBetweenDate(@RequestBody BetweenDateEventPlatformDto dto){
-        System.out.println("start peticion ->");
+               System.out.println("start peticion ->"+dto.toString());
         if((dto.getEvent().getIdEvent() != null && dto.getEvent().getIdEvent().length()>0) && (dto.getPlatform().getName() != null && dto.getPlatform().getName().length()>0)){
             System.out.println("con todos los datos 1");
             return evRegisterService.findBetweenDate(dto.getStart().longValue(), dto.getEnd().longValue(), dto.getEvent(), dto.getPlatform());
