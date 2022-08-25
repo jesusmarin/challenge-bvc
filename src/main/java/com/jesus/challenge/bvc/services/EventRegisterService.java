@@ -14,13 +14,4 @@ public interface EventRegisterService {
     EventRegisterDto updateEventRegister(EventRegisterDto dto);
     void removeEventRegister(Long id);
 
-    List<EventRegisterDto> findBetweenDate(Long startDate, Long endDate);
-    List<EventRegisterDto> findBetweenDate(Long startDate, Long endDate, Event e);
-    List<EventRegisterDto> findBetweenDate(Long startDate, Long endDate, Platform p);
-    List<EventRegisterDto> findBetweenDate(Long startDate, Long endDate, Event e, Platform p);
-
-    Integer countBetweenDate(Long startDate, Long endDate);
-    Integer countBetweenDate(Long startDate, Long endDate, Event e);
-    Integer countBetweenDate(Long startDate, Long endDate, Platform p);
-    Integer countBetweenDate(Long startDate, Long endDate, Event e, Platform p);
 }

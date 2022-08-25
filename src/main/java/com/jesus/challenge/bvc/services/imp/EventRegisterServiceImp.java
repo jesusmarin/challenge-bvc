@@ -1,9 +1,7 @@
 package com.jesus.challenge.bvc.services.imp;
 
 import com.jesus.challenge.bvc.models.dto.EventRegisterDto;
-import com.jesus.challenge.bvc.models.entities.Event;
 import com.jesus.challenge.bvc.models.entities.EventRegister;
-import com.jesus.challenge.bvc.models.entities.Platform;
 import com.jesus.challenge.bvc.repositories.EventRegisterRepository;
 import com.jesus.challenge.bvc.services.EventRegisterService;
 import lombok.AllArgsConstructor;
@@ -89,63 +87,4 @@ public class EventRegisterServiceImp implements EventRegisterService {
         repository.deleteById(id);
     }
 
-    @Override
-    public List<EventRegisterDto> findBetweenDate(Long startDate, Long endDate) {
-        List<EventRegister> lista = (List<EventRegister>) repository.findBetweenDate(startDate, endDate);
-        if(lista.size()>0){
-            return lista.stream().map(er -> modelMapper.map(er, EventRegisterDto.class)).collect(Collectors.toList());
-        }else{
-            return null;
-        }
-    }
-
-    @Override
-    public List<EventRegisterDto> findBetweenDate(Long startDate, Long endDate, Event e) {
-        List<EventRegister> lista = (List<EventRegister>) repository.findBetweenDate(startDate, endDate, e);
-        if(lista.size()>0){
-            return lista.stream().map(er -> modelMapper.map(er, EventRegisterDto.class)).collect(Collectors.toList());
-        }else{
-            return null;
-        }
-    }
-
-    @Override
-    public List<EventRegisterDto> findBetweenDate(Long startDate, Long endDate, Platform p) {
-        List<EventRegister> lista = (List<EventRegister>) repository.findBetweenDate(startDate, endDate, p);
-        if(lista.size()>0){
-            return lista.stream().map(er -> modelMapper.map(er, EventRegisterDto.class)).collect(Collectors.toList());
-        }else{
-            return null;
-        }
-    }
-
-    @Override
-    public List<EventRegisterDto> findBetweenDate(Long startDate, Long endDate, Event e, Platform p) {
-        List<EventRegister> lista = (List<EventRegister>) repository.findBetweenDate(startDate, endDate, e, p);
-        if(lista.size()>0){
-            return lista.stream().map(er -> modelMapper.map(er, EventRegisterDto.class)).collect(Collectors.toList());
-        }else{
-            return null;
-        }
-    }
-
-    @Override
-    public Integer countBetweenDate(Long startDate, Long endDate) {
-        return repository.countBetweenDate(startDate, endDate);
-    }
-
-    @Override
-    public Integer countBetweenDate(Long startDate, Long endDate, Event e) {
-        return repository.countBetweenDate(startDate, endDate, e);
-    }
-
-    @Override
-    public Integer countBetweenDate(Long startDate, Long endDate, Platform p) {
-        return repository.countBetweenDate(startDate, endDate, p);
-    }
-
-    @Override
-    public Integer countBetweenDate(Long startDate, Long endDate, Event e, Platform p) {
-        return repository.countBetweenDate(startDate, endDate, e, p);
-    }
 }
